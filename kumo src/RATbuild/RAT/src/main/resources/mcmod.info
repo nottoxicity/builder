@@ -1,13 +1,13 @@
 [
 {
-  "modid": "aurora",
-  "name": "Aurora's Utility Mod",
-  "description": "Aurora's Utility Mod includes a lot of features to help progress through Skyblock.",
+  "modid": "odin",
+  "name": "Odin",
+  "description": "Odin Utility Mod includes a lot of features to help progress through Skyblock.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Aurora"],
+  "authorList": ["Odin"],
   "credits": "",
   "logoFile": "",
   "screenshots": [],

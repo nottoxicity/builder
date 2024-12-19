@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } from "discord.js";
-import * as db from "/root/SkyHelper/database.js";
+import * as db from "../../SkyHelper/database.js";
 
 export const data = new SlashCommandBuilder()
   .setName("webhook")

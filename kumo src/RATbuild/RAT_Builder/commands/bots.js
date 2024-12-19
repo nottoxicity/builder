@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
-import * as SHDB from "/root/SkyHelper/database.js";
+import * as SHDB from "../../SkyHelper/database.js";
 
 export const data = new SlashCommandBuilder()
   .setName("bots")

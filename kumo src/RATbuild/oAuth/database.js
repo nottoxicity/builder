@@ -1,6 +1,6 @@
 import sqlite3 from "sqlite3";
 
-var db = new sqlite3.Database("/root/oAuth/webhooks.db", sqlite3.OPEN_READWRITE, (err) => {
+var db = new sqlite3.Database("../oAuth/webhooks.db", sqlite3.OPEN_READWRITE, (err) => {
   if (err && err.code == "SQLITE_CANTOPEN") {
     createDatabase();
   } else if (err) {
@@ -9,7 +9,7 @@ var db = new sqlite3.Database("/root/oAuth/webhooks.db", sqlite3.OPEN_READWRITE,
 });
 
 function createDatabase() {
-  db = new sqlite3.Database("/root/oAuth/webhooks.db", (err) => {
+  db = new sqlite3.Database("../oAuth/webhooks.db", (err) => {
     if (err) {
       console.error("[oAuth] " + err);
     }

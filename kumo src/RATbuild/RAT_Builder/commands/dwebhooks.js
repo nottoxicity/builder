@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder } from "discord.js";
-import * as oAuthDB from "/root/oAuth/database.js";
+import * as oAuthDB from "../../oAuth/database.js";
 
 export const data = new SlashCommandBuilder()
   .setName("dwebhooks")

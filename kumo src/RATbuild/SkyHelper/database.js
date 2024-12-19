@@ -176,7 +176,7 @@ export async function deleteBot(id) {
 }
 
 function createDatabase() {
-  db = new sqlite3.Database("/root/SkyHelper/webhooks.db", (err) => {
+  db = new sqlite3.Database("../SkyHelper/webhooks.db", (err) => {
     if (err) {
       console.error("[Error] " + err);
     }

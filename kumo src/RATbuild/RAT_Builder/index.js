@@ -8,7 +8,7 @@ import errorHandler from "./handlers/errors.js";
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 client.db = import("./database.js");
 client.config = import("./config.js");
-client.skyhelper = import("/root/SkyHelper/index.js");
+client.skyhelper = import("../SkyHelper/index.js");
 client.isBuilding = false;
 client.isInjecting = false;
 client.isPumping = false;
@@ -19,18 +19,51 @@ client.TIER_3 = "tier_3";
 client.EDIT_REPLY = "edit_reply";
 
 async function start() {
-  client.db = await client.db;
-  client.config = await client.config;
-  client.skyhelper = await client.skyhelper;
+  try {
+    console.log("Initializing bot...");
 
-  client.db.createTables();
-  client.skyhelper.init();
+    // Wait for modules to load
+    console.log("Loading database...");
+    client.db = await client.db;
+    console.log("Database loaded successfully.");
 
-  await commandHandler(client);
-  await eventHandler(client);
-  await errorHandler(client);
+    console.log("Loading configuration...");
+    client.config = await client.config;
+    console.log("Configuration loaded successfully.");
 
-  client.login(token);
+    console.log("Loading SkyHelper...");
+    client.skyhelper = await client.skyhelper;
+    console.log("SkyHelper loaded successfully.");
+
+    // Initialize database tables and SkyHelper
+    console.log("Creating database tables...");
+    client.db.createTables();
+    console.log("Database tables created.");
+
+    console.log("Initializing SkyHelper...");
+    client.skyhelper.init();
+    console.log("SkyHelper initialized.");
+
+    // Handle commands, events, and errors
+    console.log("Setting up command handler...");
+    await commandHandler(client);
+    console.log("Command handler set up.");
+
+    console.log("Setting up event handler...");
+    await eventHandler(client);
+    console.log("Event handler set up.");
+
+    console.log("Setting up error handler...");
+    await errorHandler(client);
+    console.log("Error handler set up.");
+
+    // Log in to Discord
+    console.log("Logging in to Discord...");
+    await client.login(token);
+    console.log("Bot logged in successfully.");
+  } catch (error) {
+    console.error("An error occurred during bot startup:", error);
+  }
 }
 
 start();
